@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import BookSearch from './BookSearch/BookSearch';
 import BookList from './BookList/BookList';
 import services from './services';
@@ -10,10 +10,6 @@ function App() {
   const [books, setBooks] = useState([]);
   const [sortType, setSortType] = useState(enums.sortType.NONE);
   const [sortedBooks, setSortedBooks] = useState([]);
-
-
-  useEffect(() => {
-  });
 
   const onSortChange = (e) => {
     const type = e.currentTarget.value;
