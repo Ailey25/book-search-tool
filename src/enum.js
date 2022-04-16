@@ -4,6 +4,8 @@ const sortType = {
     MOST_RECENT_PUBLISHED_DATE: "MOST_RECENT_PUBLISHED_DATE"
 }
 
-export default {
+const enums = {
     sortType
 }
+
+export default enums;

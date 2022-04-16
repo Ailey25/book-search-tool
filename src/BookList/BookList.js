@@ -33,7 +33,7 @@ const BookList = ({ books = [] }) => {
         </div>
     );
 
-    if (books.length == 0) {
+    if (books.length === 0) {
         return (
             <div>
                 No results found

@@ -13,6 +13,8 @@ const getAuthors = (authors) => {
     return authorString;
 }
 
-export default {
+const utils = {
     getAuthors
 }
+
+export default utils;

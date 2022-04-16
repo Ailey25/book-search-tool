@@ -13,6 +13,8 @@ const sortBooks = (sortType, books = []) => {
     }
 }
 
-export default {
+const utils = {
     sortBooks 
 }
+
+export default utils;

@@ -7,7 +7,7 @@ const formatBooks = (docs = []) => {
             coverImageUrlS = await getCoverImageByID(doc.cover_i, "S");
             coverImageUrlM = await getCoverImageByID(doc.cover_i, "M");
         }
-        
+
         const mostRecentPublishYear = doc.publish_year
             .reduce((year1, year2) => (Math.max(year1, year2)), -Infinity);
         return {
@@ -38,8 +38,10 @@ const getCoverImageByID = (coverID = "", size = "S") => {
         .then(imageBlob => URL.createObjectURL(imageBlob));
 }
 
-export {
+const services = {
     formatBooks,
     getBooks,
     getCoverImageByID
 }
+
+export default services;

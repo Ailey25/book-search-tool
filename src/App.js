@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import BookSearch from './BookSearch/BookSearch';
 import BookList from './BookList/BookList';
-import { getBooks, formatBooks } from './services';
+import services from './services';
 import utils from './util';
 import enums from './enum';
 import './App.css';
@@ -27,9 +27,9 @@ function App() {
     const bookTitle = e.target?.bookTitle?.value;
 
     try {
-      getBooks(bookTitle)
+      services.getBooks(bookTitle)
           .then(async res => {
-            const formattedBooks = await formatBooks(res.docs)
+            const formattedBooks = await services.formatBooks(res.docs)
             setBooks(formattedBooks);
             setSortedBooks(formattedBooks);
           })
