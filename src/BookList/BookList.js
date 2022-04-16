@@ -1,7 +1,17 @@
+import { useEffect, useState } from 'react';
 import util from './util';
+import enums from '../enum';
+
 import './BookList.css';
 
-const BookList = ({ books = [] }) => {
+const BookList = ({ books = [], sortType = enums.sortType.NONE }) => {
+    const [sortedBooks, setSortedBooks] = useState([]);
+    
+    useEffect(() => {
+        let sorted = util.sortBooks(sortType, books);
+        setSortedBooks(sorted);
+    }, [sortType, books]);
+    
     const renderBookCover = (coverImageUrlS, coverImageUrlM, title = "") => {
         if (coverImageUrlS && coverImageUrlM) {
             return (
@@ -24,16 +34,23 @@ const BookList = ({ books = [] }) => {
         );
     }
 
+    const renderMostRecentPublishYear = (mostRecentPublishYear) => {
+        if (!mostRecentPublishYear || mostRecentPublishYear.length === 0) {
+            return <div>No publish date found</div>
+        }
+        return (<div>{mostRecentPublishYear}</div>)
+    }
+
     const renderBook = (book) => (
         <div className="grid-item" key={book.key}>
             <div>{book.title}</div>
             {renderBookCover(book.coverImageUrlS, book.coverImageUrlM, book.title)}
             {renderBookAuthors(book.authors)}
-            <div>{book.mostRecentPublishYear}</div>
+            {renderMostRecentPublishYear(book.mostRecentPublishYear)}
         </div>
     );
 
-    if (books.length === 0) {
+    if (sortedBooks.length === 0) {
         return (
             <div>
                 No results found
@@ -44,7 +61,7 @@ const BookList = ({ books = [] }) => {
     return (
         <div className="grid-container">
             {
-                books.map(book => renderBook(book))
+                sortedBooks.map(book => renderBook(book))
             }
         </div>
     );

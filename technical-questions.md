@@ -1,8 +1,8 @@
 1. How long did you spend on the coding assignmen?
-**Around 1 and a half day**
+**Around 1 and a half to 2 days**
 
 1a. What would you add to your solution if you had more time?
-**Lots of things I could improve: regarding the Open Library API, I'd look into using isbn to query the book so I wouldn't need to query for the cover images multiple times to get different sized images for responsiveness. I'd look into querying for the details such as cover image once user clicks on the book details for more optimized querying. Look into better UI experiences/feedback when data is being fetched such as adding spinners for loading states**
+**Lots of things I could improve: regarding the Open Library API, I'd look into using isbn to query the book so I wouldn't need to query for the cover images multiple times to get different sized images for responsiveness. I'd look into querying for the details such as cover image once user clicks on the book details for more optimized querying. Look into better UI experiences/feedback when data is being fetched such as adding spinners for loading states (currently it feels like the books aren't being fetched while they load)**
 
 1b. If you didn&#39;t spend much time on the coding test, then use this as an opportunity to
 explain what you would add.

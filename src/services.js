@@ -8,9 +8,10 @@ const formatBooks = (docs = []) => {
             coverImageUrlM = await getCoverImageByID(doc.cover_i, "M");
         }
 
-        const mostRecentPublishYear = doc.publish_year
+        const mostRecentPublishYear = doc.publish_year && doc.publish_year
             .reduce((year1, year2) => (Math.max(year1, year2)), -Infinity);
-        return {
+        
+            return {
             key: doc.key,
             title: doc.title,
             coverImageUrlS,
