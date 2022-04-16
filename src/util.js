@@ -1,6 +1,6 @@
 import enums from './enum';
 
-const sortBooksByTitle = (sortType, books = []) => {
+const sortBooks = (sortType, books = []) => {
     switch(sortType) {
         case enums.sortType.NONE:
             return books;
@@ -14,5 +14,5 @@ const sortBooksByTitle = (sortType, books = []) => {
 }
 
 export default {
-    sortBooksByTitle
+    sortBooks 
 }

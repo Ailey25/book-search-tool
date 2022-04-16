@@ -18,19 +18,17 @@ function App() {
   const onSortChange = (e) => {
     const type = e.currentTarget.value;
     setSortType(type);
-    let sortedBooks = utils.sortBooksByTitle(type, books);
+    let sortedBooks = utils.sortBooks(type, books);
     setSortedBooks(sortedBooks);
   }
 
   const onSubmit = (e) => {
     e.preventDefault();
     const bookTitle = e.target?.bookTitle?.value;
-    console.log('submit: ', bookTitle)
 
     try {
       getBooks(bookTitle)
           .then(async res => {
-            console.log('res', res)
             const formattedBooks = await formatBooks(res.docs)
             setBooks(formattedBooks);
             setSortedBooks(formattedBooks);
@@ -41,7 +39,7 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div data-testid="app" className="App">
       <BookSearch onSubmit={onSubmit} />
       <div className="sort-container">
         <label htmlFor="sort">Sort by:</label>
