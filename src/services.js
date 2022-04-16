@@ -27,7 +27,7 @@ const generateRequestBookTitle = (bookTitle = "") => {
 
 const getBooks = (bookTitle = "") => {
     const formattedTitle = generateRequestBookTitle(bookTitle);
-    const url = `http://openlibrary.org/search.json?q=${formattedTitle}`;
+    const url = `https://openlibrary.org/search.json?q=${formattedTitle}`;
     return fetch(url).then(data => data.json());
 }
 
